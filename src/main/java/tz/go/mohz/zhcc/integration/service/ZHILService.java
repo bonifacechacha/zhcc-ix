@@ -1,7 +1,7 @@
 package tz.go.mohz.zhcc.integration.service;
 
-import com.fasterxml.jackson.databind.JsonNode;
 import java.util.List;
+import java.util.Map;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
@@ -20,7 +20,7 @@ public class ZHILService {
 
   private final RestTemplate restTemplate;
 
-  public ResponseEntity<JsonNode> submitProducts(JsonNode products) {
+  public ResponseEntity submitProducts(List<Map<String, Object>>  products) {
     var headers = SecurityUtils.createBasicAuthorizationHeaders(
         configurationProperties.getUsername(),
         configurationProperties.getPassword()
@@ -34,7 +34,7 @@ public class ZHILService {
         configurationProperties.getApiUrl(),
         HttpMethod.POST,
         request,
-        JsonNode.class
+        String.class
     );
 
     return response;

@@ -7,8 +7,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import tz.go.mohz.zhcc.integration.service.ZHCCService;
 
-@SpringBootTest
 @Log
+@SpringBootTest
 public class ZHCCServiceIntegrationTest {
 
   @Inject
