@@ -7,7 +7,7 @@ import lombok.extern.java.Log;
 import org.springframework.stereotype.Component;
 import org.springframework.util.ObjectUtils;
 import tz.go.mohz.zhcc.integration.dto.RegistryProductCreateDTO;
-import tz.go.mohz.zhcc.integration.dto.ZFDAProductCreateDTO;
+import tz.go.mohz.zhcc.integration.dto.ZFDAProductDTO;
 import tz.go.mohz.zhcc.integration.mapper.ProductMapper;
 import tz.go.mohz.zhcc.integration.service.ZHCCService;
 import tz.go.mohz.zhcc.integration.service.ZHILService;
@@ -36,7 +36,12 @@ public class ProductFacade {
     zhilService.submitProducts(payloads);
   }
 
-  public void createZFDAProducts(List<ZFDAProductCreateDTO> createDTOs) {
+  public void createZFDAProducts(List<ZFDAProductDTO.CreateDTO> createDTOs) {
     createRegistryProducts(productMapper.toRegistryProductCreateDTOs(createDTOs));
+  }
+
+  public void updateZFDAProduct(String productId, ZFDAProductDTO.UpdateDTO updateDTO) {
+    updateDTO.setSku(productId);
+
   }
 }

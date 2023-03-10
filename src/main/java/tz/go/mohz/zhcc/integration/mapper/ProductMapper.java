@@ -12,7 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import tz.go.mohz.zhcc.integration.ZHCCProperties;
 import tz.go.mohz.zhcc.integration.dto.RegistryProductCreateDTO;
-import tz.go.mohz.zhcc.integration.dto.ZFDAProductCreateDTO;
+import tz.go.mohz.zhcc.integration.dto.ZFDAProductDTO;
 
 @Validated
 @Mapper(componentModel = SPRING)
@@ -24,9 +24,9 @@ public abstract class ProductMapper {
   @Autowired
   private ZHCCProperties zhccProperties;
 
-  public abstract List<RegistryProductCreateDTO> toRegistryProductCreateDTOs(List<ZFDAProductCreateDTO> zfdaProductCreateDTO);
+  public abstract List<RegistryProductCreateDTO> toRegistryProductCreateDTOs(List<ZFDAProductDTO.CreateDTO> zfdaProductCreateDTO);
 
-  public RegistryProductCreateDTO toRegistryProductCreateDTO(ZFDAProductCreateDTO zfdaProductCreateDTO) {
+  public RegistryProductCreateDTO toRegistryProductCreateDTO(ZFDAProductDTO.CreateDTO zfdaProductCreateDTO) {
     var registryProductCreateDTO = new RegistryProductCreateDTO();
     registryProductCreateDTO.setIdentifier(zfdaProductCreateDTO.getSku());
     registryProductCreateDTO.setFamily("MOHZ");

@@ -7,10 +7,9 @@ import lombok.Setter;
 @Setter
 @Getter
 @NoArgsConstructor
-public class ZFDAProductCreateDTO {
+public class ZFDAProductDTO {
 
   private String sku;
-
   private String atcCode;
 
   private String baseUom;
@@ -46,5 +45,18 @@ public class ZFDAProductCreateDTO {
   private String zfdaCertificateNumber;
 
   private String zfdaIdentifier;
+
+  @Setter
+  @Getter
+  @NoArgsConstructor
+  public static class CreateDTO extends ZFDAProductDTO {
+  }
+
+  @Setter
+  @Getter
+  @NoArgsConstructor
+  public static class UpdateDTO extends ZFDAProductDTO {
+
+  }
 
 }
